@@ -15,7 +15,6 @@ button {
   background-color: mediumpurple;
   border: 1px solid mediumpurple;
   border-radius: 4px;
-  font-size: 16px;
   transition-duration: 0.25s;
   font-size: 20px;
 }
@@ -48,16 +47,29 @@ input:focus-within {
   outline: 1px solid mediumpurple;
 }
 
+h1 {
+  font-size: 72px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 48px;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 36px;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
 .home-page {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.home-page__title {
-  font-size: 72px;
 }
 
 .teams-page {
@@ -68,14 +80,24 @@ input:focus-within {
   justify-content: space-between;
 }
 
-.teams-page__title {
-  font-size: 48px;
-  margin-bottom: 32px;
+.teams-page__button-container {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.teams-page__button {
+  width: 200px;
 }
 
 .teams-page__remaining {
   width: 50%;
   padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .teams-page__remaining-item {
@@ -85,25 +107,10 @@ input:focus-within {
 .teams-page__teams {
   width: 50%;
   padding: 16px 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .teams-page__teams-list-item {
   margin-bottom: 16px;
-}
-
-.teams-page__teams-buttons {
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  justify-content: space-between;
-}
-
-.teams-page__teams-button {
-  width: 200px;
 }
 
 .rebus-page {
