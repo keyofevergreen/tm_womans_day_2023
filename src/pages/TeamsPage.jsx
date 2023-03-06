@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const armenianGirls = ["Александра Горбай", "Анна Фролова"];
 
@@ -69,6 +70,12 @@ const TeamsPage = () => {
       <button onClick={generateTeam} disabled={!remainingGirls.length}>
         Generate team
       </button>
+      <br></br>
+      {!remainingGirls.length && (
+        <Link to="/rebus">
+          <button>Next</button>
+        </Link>
+      )}
     </div>
   );
 };
