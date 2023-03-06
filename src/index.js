@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
+import HomePage from "./pages/HomePage";
 import TeamsPage from "./pages/TeamsPage";
 import RebusPage from "./pages/RebusPage";
 import GiftPage from "./pages/GiftPage";
+import "./index.css";
 
 const router = createBrowserRouter([
-  { path: "/", element: <TeamsPage /> },
+  { path: "/", element: <HomePage /> },
+  { path: "/teams", element: <TeamsPage /> },
   { path: "/rebus", element: <RebusPage /> },
   { path: "/gift", element: <GiftPage /> },
 ]);

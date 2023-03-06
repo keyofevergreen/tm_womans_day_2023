@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../index.css";
 
 const emojiRows = [
   ["😎", "👌", "👍", "👉", "🙏"],
@@ -15,7 +16,7 @@ const correctAnswer = "такие девушки как звезды";
 const RebusPage = () => {
   const [rebus, setRebus] = useState([]);
   const [rebusError, setRebusError] = useState(false);
-  const [rebusFound, setRebusFound] = useState(true);
+  const [rebusFound, setRebusFound] = useState(false);
   const [answer, setAnswer] = useState("");
   const [answerFound, setAnswerFound] = useState(false);
   const navigate = useNavigate();
@@ -58,10 +59,15 @@ const RebusPage = () => {
   }, [rebus]);
 
   return (
-    <div>
-      <h1>Rebus Page</h1>
-      <div>{rebus.concat("")}</div>
-      {rebusError && <div>Wrong emoji sequence</div>}
+    <div className="rebus-page">
+      <div className="rebus-page__rebus">
+        <div className="rebus-page__rebus-text">{rebus.concat("")}</div>
+        {rebusError && (
+          <div className="rebus-page__rebus-error">
+            Неправильная последовательность
+          </div>
+        )}
+      </div>
       <table>
         <tbody>
           {emojiRows.map((row, rowIdx) => (
@@ -69,6 +75,7 @@ const RebusPage = () => {
               {row.map((emoji) => (
                 <td key={emoji}>
                   <button
+                    className="emoji_button"
                     onClick={() => onEmojiClick(emoji)}
                     disabled={rebus.length === 4 || rebusFound}
                   >

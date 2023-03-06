@@ -1,13 +1,146 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 24px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button {
+  cursor: pointer;
+  padding: 5px 10px;
+  color: white;
+  background-color: mediumpurple;
+  border: 1px solid mediumpurple;
+  border-radius: 4px;
+  font-size: 16px;
+  transition-duration: 0.25s;
+  font-size: 20px;
+}
+
+button:hover {
+  background: transparent;
+  color: black;
+}
+
+button:disabled,
+button[disabled] {
+  opacity: 0.6;
+  background-color: mediumpurple;
+  color: white;
+  cursor: not-allowed;
+}
+
+button:active {
+  background-color: gray;
+}
+
+input {
+  padding: 5px 15px;
+  border: 1px solid mediumpurple;
+  border-radius: 4px;
+  font-size: 24px;
+}
+
+input:focus-within {
+  outline: 1px solid mediumpurple;
+}
+
+.home-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-page__title {
+  font-size: 72px;
+}
+
+.teams-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.teams-page__title {
+  font-size: 48px;
+  margin-bottom: 32px;
+}
+
+.teams-page__remaining {
+  width: 50%;
+  padding: 16px 32px;
+}
+
+.teams-page__remaining-item {
+  margin-bottom: 8px;
+}
+
+.teams-page__teams {
+  width: 50%;
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.teams-page__teams-list-item {
+  margin-bottom: 16px;
+}
+
+.teams-page__teams-buttons {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.teams-page__teams-button {
+  width: 200px;
+}
+
+.rebus-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.rebus-page__rebus {
+  height: 88px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rebus-page__rebus-text {
+  height: 64px;
+  font-size: 48px;
+}
+
+.rebus-page__rebus-error {
+  height: 24px;
+  color: crimson;
+}
+
+.gift-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji_button {
+  width: 60px;
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "../index.css";
 
 const armenianGirls = ["Александра Горбай", "Анна Фролова"];
 
@@ -46,36 +47,48 @@ const TeamsPage = () => {
   }
 
   return (
-    <div>
-      <h1>Teams Page</h1>
-      <h2>Remaining</h2>
-      {remainingGirls.map((girl) => (
-        <div key={girl}>{girl}</div>
-      ))}
-      <h2>Teams</h2>
-      {teams?.map((team, idx) => (
-        <div key={idx}>
-          <h3>Team {idx + 1}</h3>
-          <div>
-            {team.map((girl, idx) => (
-              <span key={idx + girl}>
-                {girl}
-                {idx < team.length - 1 && ", "}
-              </span>
-            ))}
+    <div className="teams-page">
+      <div className="teams-page__remaining">
+        <div className="teams-page__title">Девушки</div>
+        {remainingGirls.map((girl) => (
+          <div className="teams-page__remaining-item" key={girl}>
+            {girl}
           </div>
+        ))}
+      </div>
+
+      <div className="teams-page__teams">
+        <div>
+          <div className="teams-page__title">Группы</div>
+          {teams?.map((team, idx) => (
+            <div className="teams-page__teams-list-item" key={idx}>
+              <span>Группа {idx + 1}</span>
+              <div>
+                {team.map((girl, idx) => (
+                  <span key={idx + girl}>
+                    {girl}
+                    {idx < team.length - 1 && ", "}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-      <br></br>
-      <button onClick={generateTeam} disabled={!remainingGirls.length}>
-        Generate team
-      </button>
-      <br></br>
-      {!remainingGirls.length && (
-        <Link to="/rebus">
-          <button>Next</button>
-        </Link>
-      )}
+        <div className="teams-page__teams-buttons">
+          <button
+            className="teams-page__teams-button"
+            onClick={generateTeam}
+            disabled={!remainingGirls.length}
+          >
+            Собрать
+          </button>
+          {!remainingGirls.length && (
+            <Link to="/rebus">
+              <button className="teams-page__teams-button">Далее</button>
+            </Link>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
