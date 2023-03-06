@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../index.css";
+import '../emojiRain.css'
+import '../index.css';
+import TrueLogo from '../assets/TrueLogoColored.svg';
+import runEmojiRain from "../helpers/runEmojiRain";
+import classNames from "classnames";
 
 const emojiRows = [
   ["😎", "👌", "👍", "👉", "🙏"],
@@ -32,7 +36,7 @@ const RebusPage = () => {
       setAnswerFound(true);
       setTimeout(() => {
         navigate("/gift");
-      }, 1000);
+      }, 7000);
     }
   }
 
@@ -58,43 +62,65 @@ const RebusPage = () => {
     }
   }, [rebus]);
 
+  useEffect(() => {
+    if(answerFound) {
+      runEmojiRain();
+    }
+  }, [answerFound]);
+
+
   return (
-    <div className="rebus-page">
-      <div className="rebus-page__rebus">
-        <div className="rebus-page__rebus-text">{rebus.concat("")}</div>
-        {rebusError && (
-          <div className="rebus-page__rebus-error">
-            Неправильная последовательность
+    <>
+      <div id="all">
+        <div id="container">
+          <div id="animate">
           </div>
-        )}
+        </div>
       </div>
-      <table>
-        <tbody>
-          {emojiRows.map((row, rowIdx) => (
-            <tr key={rowIdx}>
-              {row.map((emoji) => (
-                <td key={emoji}>
-                  <button
-                    className="emoji_button"
-                    onClick={() => onEmojiClick(emoji)}
-                    disabled={rebus.length === 4 || rebusFound}
-                  >
-                    {emoji}
-                  </button>
-                </td>
+      <div id="text">
+        <div className={classNames('rebus-page true-background--3', {
+          'rebus-page--active': !answerFound,
+        })}>
+          <img src={TrueLogo} alt="TrueLogo" className="rebus-page__logo"/>
+          <div className="rebus-wrapper">
+            <div className="rebus-page__rebus">
+              <div className="rebus-page__rebus-text">{rebus.concat("")}</div>
+              {rebusError && (
+                <div className="rebus-page__rebus-error">
+                  Неправильная последовательность
+                </div>
+              )}
+            </div>
+            <table>
+              <tbody>
+              {emojiRows.map((row, rowIdx) => (
+                <tr key={rowIdx}>
+                  {row.map((emoji) => (
+                    <td key={emoji}>
+                      <button
+                        className="emoji_button"
+                        onClick={() => onEmojiClick(emoji)}
+                        disabled={rebus.length === 4 || rebusFound}
+                      >
+                        {emoji}
+                      </button>
+                    </td>
+                  ))}
+                </tr>
               ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div>
-        <input
-          value={answer}
-          onChange={onAnswerInput}
-          disabled={!rebusFound || answerFound}
-        />
+              </tbody>
+            </table>
+            <div>
+              <input
+                value={answer}
+                onChange={onAnswerInput}
+                disabled={!rebusFound || answerFound}
+              />
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

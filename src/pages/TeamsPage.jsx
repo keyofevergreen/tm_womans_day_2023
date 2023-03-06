@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../index.css";
+import classNames from "classnames";
 
 const armenianGirls = ["Александра Горбай", "Анна Фролова"];
 
@@ -20,6 +21,7 @@ const allGirls = [...armenianGirls, ...ulyanovskGirls].sort();
 
 const TeamsPage = () => {
   const [teams, setTeams] = useState([]);
+  const [buttonCounter, setButtonCounter] = useState(0)
 
   function generateTeams() {
     const result = [[...armenianGirls]];
@@ -41,11 +43,51 @@ const TeamsPage = () => {
     return newTeam;
   }
 
+  const onClick = () => {
+    if(buttonCounter === 8) {
+      generateTeams()
+    } else {
+      setButtonCounter(buttonCounter + 1);
+    }
+  }
+
+  const buttonText = () => {
+    switch(buttonCounter) {
+      case 0: {
+        return 'Нажмите сюда';
+      }
+      case 1: {
+        return 'Готовы?'
+      }
+      case 2: {
+        return 'Точно?'
+      }
+      case 3: {
+        return 'Собрать команды!'
+      }
+      case 4: {
+        return "Это была джокушка ловушкера"
+      }
+      case 5: {
+        return 'Девочки, я вчера на стриме Максима в дисе увидела кое-что'
+      }
+      case 6: {
+        return 'А я у Влада увидела!'
+      }
+      case 7: {
+        return 'Здесь могла быть ваша реклама'
+      }
+      default: {
+        return 'Собрать команды!'
+      }
+    }
+  }
+
   return (
-    <div className="teams-page">
+    <div className="teams-page true-background--2">
       {!teams.length ? (
         <div className="teams-page__remaining">
-          <div>
+          <div className='girls-list'>
             <h2>Девушки</h2>
             {allGirls.map((girl) => (
               <div className="teams-page__remaining-item" key={girl}>
@@ -53,15 +95,23 @@ const TeamsPage = () => {
               </div>
             ))}
           </div>
-          <div className="teams-page__button-container">
-            <button className="teams-page__button" onClick={generateTeams}>
-              Собрать
-            </button>
-          </div>
+            <div className="teams-page__button-container">
+              <div>
+                <button
+                  className={classNames('teams-page__button', {
+                    'teams-page__button--fuck-position--1': buttonCounter === 5,
+                    'teams-page__button--fuck-position--2': buttonCounter === 6,
+                    'teams-page__button--fuck-position--3': buttonCounter === 7,
+                  })}
+                  onClick={onClick}
+                >
+                  {buttonText()}
+                </button>
+              </div>
+            </div>
         </div>
       ) : (
         <div className="teams-page__teams">
-          <div>
             <h2>Группы</h2>
             {teams?.map((team, idx) => (
               <div className="teams-page__teams-list-item" key={idx}>
@@ -76,7 +126,6 @@ const TeamsPage = () => {
                 </div>
               </div>
             ))}
-          </div>
           <div className="teams-page__button-container">
             <Link to="/rebus">
               <button className="teams-page__button">Далее</button>

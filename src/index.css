@@ -1,4 +1,5 @@
 body {
+    overflow: hidden;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -21,7 +22,7 @@ button {
 
 button:hover {
   background: transparent;
-  color: black;
+  color: #fff;
 }
 
 button:disabled,
@@ -65,6 +66,7 @@ h3 {
 }
 
 .home-page {
+    color: #fff;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -73,32 +75,62 @@ h3 {
 }
 
 .teams-page {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    color: #fff;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .teams-page__button-container {
   height: 80px;
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: space-between;
+  justify-content: center;
+    margin-top: 40px;
 }
 
 .teams-page__button {
-  width: 200px;
+  min-width: 200px;
+    height: 35px;
+}
+
+.teams-page__button--fuck-position--1 {
+    position: absolute;
+    left: 45px;
+    top: 355px;
+    z-index: 500;
+}
+
+.teams-page__button--fuck-position--2 {
+    position: absolute;
+    right: 70px;
+    bottom: 10px;
+    z-index: 500;
+}
+
+.teams-page__button--fuck-position--3 {
+    position: absolute;
+    left: 300px;
+    top: 100px;
+    z-index: 500;
 }
 
 .teams-page__remaining {
-  width: 50%;
   padding: 16px 32px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    width: 500px;
+    flex-direction: column;
+    background: rgba(34, 34, 34, 0.7);
+    border-radius: 45px;
 }
+
+.teams-page__remaining .girls-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .teams-page__remaining-item {
   margin-bottom: 8px;
@@ -107,19 +139,42 @@ h3 {
 .teams-page__teams {
   width: 50%;
   padding: 16px 32px;
+    background: rgba(34, 34, 34, 0.8);
+    padding: 10px;
+    border-radius: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .teams-page__teams-list-item {
   margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .rebus-page {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rebus-page--active {
+    z-index: 10000;
+}
+
+.rebus-wrapper {
+    background: rgba(132, 87, 156, 0.1);
+    border-radius: 45px;
+    width: 500px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .rebus-page__rebus {
@@ -128,6 +183,13 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.rebus-page__logo {
+    position: absolute;
+    width: 700px;
+    right: -170px;
+    z-index: 1;
 }
 
 .rebus-page__rebus-text {
@@ -150,4 +212,136 @@ h3 {
 
 .emoji_button {
   width: 60px;
+}
+
+.pink {
+    color: #ca2d74;
+}
+
+.true-background--1 {
+    background-image: url(assets/TrueBackground-1.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.true-background--2 {
+    background-image: url(assets/TrueBackground-2.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.true-background--3 {
+    background-image: url(assets/TrueBackground-3.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.true-background--4 {
+    background-image: url(assets/TrueBackground-4.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.heart-line {
+    display: flex;
+    justify-content: center;
+}
+
+.heart {
+    position: relative;
+    margin-bottom: 30px;
+    width: 100px;
+    height: 101px;
+    -webkit-transform: rotate(45deg);  /* для Chrome и Safari */
+    -moz-transform: rotate(45deg); /* для Firefox */
+    -o-transform: rotate(45deg); /* для Opera */
+    transform: rotate(45deg);
+    border: solid 1px #ca2d74;
+    border-top: none;
+    border-left: none;
+    background: #ca2d74;
+    cursor: pointer;
+}
+
+.heart:before, .heart:after {
+    position:absolute;
+    content: ' ';
+    -webkit-border-radius: 50px 0 0 50px;
+    -moz-border-radius: 50px 0 0 50px;
+    border-radius: 50px 0 0 50px;
+    width: 70px;
+    height: 100px;
+    border: solid 1px #ca2d74;
+    border-right: none;
+    left:-70px;
+}
+.heart:after {
+    position: absolute;
+    left: 15px;
+    top: -85px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    background: #ca2d74;
+}
+
+.heart:before {
+    background: #ca2d74;
+}
+.heart:after {
+    background: #ca2d74;
+}
+
+.heart {
+    animation-name: anime;
+    /* имя кейфрейма для анимации */
+    animation-duration: 1000ms;
+    /* длительность анимации */
+    animation-iteration-count: infinite;
+    /* количество повторений, в данном случае - бесконечно */
+    animation-direction: alternate;
+    /* проигрывать анимацию в прямом и в обратном порядке */
+    animation-timing-function: ease-in;
+    /* вычисление временных промежутков для анимации, в данном случае анимация ускоряется */
+}
+
+.heart__logo {
+    position: absolute;
+    top: 22%;
+    left: -6%;
+    height: 35px;
+    -webkit-transform: rotate(-45deg);  /* для Chrome и Safari */
+    -moz-transform: rotate(-45deg); /* для Firefox */
+    -o-transform: rotate(-45deg); /* для Opera */
+    transform: rotate(-45deg);
+    z-index: 100;
+}
+
+@keyframes anime {
+    from {
+        transform: scale(1) rotate(45deg);
+    }
+    to {
+        transform: scale(1.1) rotate(45deg);
+    }
 }
